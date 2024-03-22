@@ -1,4 +1,4 @@
-val composeVersion = "1.2.0-rc03"
+val composeVersion = "1.6.4"
 
 plugins {
     id("com.android.application")
@@ -6,7 +6,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
-    id("com.google.devtools.ksp").version("1.6.21-1.0.5")
+    id("com.google.devtools.ksp").version("1.9.23-1.0.19")
 }
 android {
     namespace = "com.kobeissidev.jetpackcomposepokedex"
@@ -50,22 +50,22 @@ android.run {
 
 dependencies {
     // Temp workaround for hilt + room bug
-    api("androidx.room:room-runtime:2.5.0-alpha02")
+    api("androidx.room:room-runtime:2.6.1")
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.10")
-    implementation("androidx.core:core-ktx:1.9.0-alpha05")
-    implementation("androidx.appcompat:appcompat:1.6.0-alpha05")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.23")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     // Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.43")
+    implementation("com.google.dagger:hilt-android:2.51")
     // Used for hiltViewModel() in Compose
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     // Jetpack Compose
     implementation("androidx.compose.ui:ui:$composeVersion")
     // Tooling support (Previews, etc.)
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
     implementation("androidx.compose.runtime:runtime:$composeVersion")
     // implementations support for setContent in activities
-    implementation("androidx.activity:activity-compose:1.5.0")
+    implementation("androidx.activity:activity-compose:1.8.2")
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation("androidx.compose.foundation:foundation:$composeVersion")
     // Material Design
@@ -74,30 +74,30 @@ dependencies {
     implementation("androidx.compose.material:material-icons-core:$composeVersion")
     implementation("androidx.compose.material:material-icons-extended:$composeVersion")
     // Accompanist to supplement Jetpack Compose
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.24.8-beta")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.34.0")
     // Navigation in Compose
-    implementation("androidx.navigation:navigation-compose:2.5.0")
-    implementation("com.google.accompanist:accompanist-navigation-animation:0.24.8-beta")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.34.0")
     // Used for image loading in Compose
-    implementation("io.coil-kt:coil-compose:2.1.0")
+    implementation("io.coil-kt:coil-compose:2.6.0")
     // Retrofit + Moshi
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
-    implementation("com.squareup.moshi:moshi:1.13.0")
+    implementation("com.squareup.retrofit2:retrofit:2.10.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.squareup.moshi:moshi:1.15.1")
     // Kotlinx Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
     // Room
-    implementation("androidx.room:room-ktx:2.5.0-alpha02")
-    implementation("androidx.room:room-paging:2.5.0-alpha02")
+    implementation("androidx.room:room-ktx:2.6.1")
+    implementation("androidx.room:room-paging:2.6.1")
     // Paging Compose
-    implementation("androidx.paging:paging-compose:1.0.0-alpha15")
+    implementation("androidx.paging:paging-compose:3.2.1")
     // Swipe to Refresh
-    implementation("com.google.accompanist:accompanist-swiperefresh:0.24.8-beta")
+    implementation("com.google.accompanist:accompanist-swiperefresh:0.34.0")
     // Pager for creating tabbed layout
-    implementation("com.google.accompanist:accompanist-pager:0.24.8-beta")
-    implementation("com.google.accompanist:accompanist-pager-indicators:0.24.8-beta")
+    implementation("com.google.accompanist:accompanist-pager:0.34.0")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.34.0")
     // Color extraction from image
     implementation("androidx.palette:palette-ktx:1.0.0")
     // Logging
@@ -105,11 +105,11 @@ dependencies {
 
     testImplementation("junit:junit:4.13.2")
 
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
 
-    kapt("com.google.dagger:hilt-android-compiler:2.43")
-    ksp("androidx.room:room-compiler:2.5.0-alpha02")
-    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.13.0")
+    kapt("com.google.dagger:hilt-android-compiler:2.51")
+    ksp("androidx.room:room-compiler:2.6.1")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.1")
 }
